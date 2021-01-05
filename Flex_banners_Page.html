@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box
+         }
+
+            body {font-family: Verdana, sans-serif; margin:0}
+            .mySlides {display: none}
+            img {vertical-align: middle;}
+
+        body{
+          height: 100vh;
+          width: 100vw;
+          overflow-x: hidden;
+        }
+        #header_1{
+            width: 100%;
+            height: 50px;
+            background-color: orangered;
+            display: flex;
+        }
+        .menulines{
+            font-size: 25pt;
+            color: white;
+            cursor: pointer;
+            margin-left: 10px;
+            padding: 3px;
+        }
+        .menulines:hover{
+          border: 2px solid white;
+          border-radius: 7px;
+        }
+        .Company_heading{
+            color: white;
+            font-weight: bolder;
+            font-family: sans-serif;
+            font-size: 30pt;
+            margin-left: 28%;
+        }
+        .Business_logo{
+          border-radius: 50%;
+          margin-right: 13px;
+          cursor: pointer;
+        }
+        .Home_icon{
+          color: white;
+          font-size: 18pt;
+          font-weight: bolder;
+          position: absolute;
+          right: 5px;
+          top: 6px;
+          text-decoration: none;
+          padding: 3px;
+        }
+        .Home_icon:hover{
+          border: 2px solid white;
+          border-radius: 7px;
+        }        
+        .sidenav{
+            height: 100%;
+            width: 0%;
+            background-color: black;
+            position: fixed;
+            top: 0;
+            z-index: 1;
+            transition: all 0.6s;
+        }
+        .sidenav a{
+            text-decoration: none;
+            color: white;
+            font-size: 15pt;
+            display: block;
+            padding: 25px 0px 30px 30px;
+            padding-left: 60px;
+        }
+        .sidenav_elements{
+            display: none;
+        }
+        .sidenav a:hover{
+            color: grey;
+            text-decoration: underline;
+        }
+        .closebtn{
+            float: right;
+            margin-right: 15px;
+            font-size: 30pt!important;
+        }
+        #header_2{
+            width: 100%;
+            height: 40px;
+            background-color: black;
+        }
+        .Shadi_Cards{
+            text-decoration: none;
+            color: white;
+            font-size: 15pt;
+            font-family: sans-serif;
+            position: absolute;
+            padding: 4px;
+            margin-left: 2%;
+            margin-top: 3px;
+        }
+        .Visiting_Cards{
+            text-decoration: none;
+            color: white;
+            font-size: 15pt;
+            font-family: sans-serif;
+            position: absolute;
+            left: 18%;
+            padding: 4px;
+            margin-top: 3px;
+        }        
+        .Carry_Bags{
+            text-decoration: none;
+            color: white;
+            font-size: 15pt;
+            font-family: sans-serif;
+            position: absolute;
+            left: 35%;
+            padding: 4px;
+            margin-top: 3px;
+        }
+        .Flex_Banners{
+            text-decoration: none;
+            color: white;
+            font-size: 15pt;
+            font-family: sans-serif;
+            position: absolute;
+            left: 50%;
+            padding: 4px;
+            margin-top: 3px;
+        }
+        .Bill_Books{
+            text-decoration: none;
+            color: white;
+            font-size: 15pt;
+            font-family: sans-serif;
+            position: absolute;
+            left: 67%;
+            padding: 4px;
+            margin-top: 3px;
+        }
+        .Shadi_Cards:hover, .Visiting_Cards:hover, .Carry_Bags:hover, .Flex_Banners:hover, .Bill_Books:hover{
+          text-decoration: underline;
+          color: grey;
+        }
+        #More_Options{
+            position: absolute;
+            left: 82%;
+            width: 15%;
+            padding: 4px;
+            font-family: sans-serif;
+            font-weight: bolder;
+            font-size: 13pt;
+            cursor: pointer;
+            margin-top: 3px;
+            margin-left: -20px;
+            border-top-left-radius: 4px;
+            border-bottom-left-radius: 4px;
+            border-top-right-radius: 0px;
+            border-bottom-right-radius: 0px;
+        }
+        #More_Options_sidenav{
+          position: absolute;
+            left: 82%;
+            width: 15%;
+            padding: 4px;
+            font-family: sans-serif;
+            font-weight: bolder;
+            font-size: 13pt;
+            cursor: pointer;
+            margin-top: 3px;
+            margin-left: -20px;
+            border-top-left-radius: 4px;
+            border-bottom-left-radius: 4px;
+            border-top-right-radius: 0px;
+            border-bottom-right-radius: 0px;
+        }
+        #More_Options_footer{
+            position: absolute;
+            left: 82%;
+            width: 15%;
+            padding: 4px;
+            font-family: sans-serif;
+            font-weight: bolder;
+            font-size: 13pt;
+            cursor: pointer;
+            margin-top: 3px;
+            margin-left: -20px;
+            border-radius: 7px;
+        }
+        .More_text_Style{
+            font-weight: bolder;
+        }
+        #Home_Page_Alert_Div{
+            height: 30px;
+            background-color: skyblue;
+            width: 100%;
+            font-weight: bolder;
+            font-style: italic;
+            font-size: 15pt;
+        }
+        .Alert_Message{
+            margin-left: 10px;
+        }
+        @media only screen and (max-width: 1075px) {
+  .Company_heading{
+    margin-left: 20%;
+  }
+  .select_search{
+    position: relative;
+  }
+  #More_Options{
+    width: 135px;
+  }  
+}
+@media only screen and (max-width: 300px) {
+  .Company_heading{
+    font-size: 15pt;
+    margin-left: 0%;
+  }
+  .Home_icon{
+    font-size: 15pt;
+  }
+  .Alert_Message{
+    font-size: 8pt;
+  }
+}
+table{
+  background-color: aqua;
+  width: 100%;
+  padding: 30px;
+}
+#Card_list_container{
+  padding: 30px;
+  background-color: rgb(180, 253, 253);
+}
+.Card_list{
+  display: flex;
+  width: 100%;
+  height: 300px;
+  border: 1px solid grey;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 30px 30px 30px grey;
+  background-color: white;
+}
+.Card_list > div > img{
+  height: 250px;
+  width: 370px;
+  background-color: white;
+}
+.Card_list:hover{
+  background-color: rgb(31, 29, 29);
+  color: white;
+}
+.shadicard_detail{
+  margin-left: 330px;
+}
+@media screen and (max-width: 1075px){
+  .shadicard_detail{margin-left: 130px;}
+}
+#back_to_top_scroll_btn{
+  display: none;
+  padding: 5px;
+  background-color: red;
+  color: white;
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  border: none;
+  border-radius: 6px;  
+}
+.slideshow-container > div > img{
+    margin-top: 140px;
+  }
+
+    </style>
+</head>
+<body>
+    <header>
+      <div style="position: fixed; z-index: 99; width: 100%; height: auto;">
+        <div id="header_1">
+          <abbr title="Back to top">
+            <button onclick="back_to_top()" id="back_to_top_scroll_btn">
+              <i class="fas fa-chevron-up" style="font-weight: bolder; font-size: 35pt;"></i>
+            </button>
+          </abbr>
+            <span class="menulines" onclick="openNav()">&#9776;</i></span>
+            <span class="Company_heading">
+                <a href="Profile Page.html"><img src="Business logo.png" height="45px" width="auto" class="Business_logo"></a>Shree Ram Printing Press
+            </span>
+            <a href="Home Page.html" class="Home_icon"> <i class="fas fa-home"></i> Home</a>
+        </div>
+        <div class="sidenav">
+            <div class="sidenav_elements">
+                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">
+                &times;</a>
+            
+                <a href="Home Page.html"  class="sidenav_options" style="padding-top: 100px;"><i class="fas fa-home"></i> Home</a>
+                <a href="Galleries.html" class="sidenav_options">Gallery</a>
+                <a onclick="get_location()"  class="sidenav_options" style="cursor: pointer;"><i class="fas fa-map-marker-alt"></i> Satellite Location</a>
+                <a href="#"  class="sidenav_options"  onmouseover="about_mouseover()"
+                onmouseout="about_mouseout()">About &#10095&#10095</a>
+                <div class='sidenav_About_option_div' style="width: 270px; background-color: rgb(17, 211, 17); padding: 2px;
+                margin-top: -30px; float: right; margin-right: -120px; visibility: hidden;">
+                   <img src="Business logo.png" width="30px" height="auto" style="border-radius: 50%;">
+                     <span><b>Sri Ram Printing Press</b></span>
+                </div>
+              <a href="#"  class="sidenav_options_contact"  onmouseover="contact_mouseover()"
+                onmouseout="contact_mouseout()" >Contact &#10095&#10095
+              </a>
+                <div class="sidenav_options_div" style="width: 270px; background-color: rgb(17, 211, 17); padding: 5px;
+                margin-top: -30px; float: right; margin-right: -120px; visibility: hidden;"><b>
+                  Contact No: </b>9690098900<br><hr color="white">
+                  <b>Whatsapp Chat: </b>9690098900
+                </div>
+                <a href="Profile Page.html" class="sidenav_options">Account Page</a>
+                <a><select id="More_Options_sidenav" style="width: 100px; margin-left: -150px;">
+                  <option class="More_text_Style" selected=''>More...</option>
+                  <option>Birthday Cards</option>
+                  <option>Akhand Ramayana Cards</option>
+                  <option>Marriage Cards</option>
+                  <option>Carry Bags</option>
+                  <option>Visiting Cards</option>
+                  <option>Bill Books</option>
+                  <option>Letter Pads</option>
+                  <option>Flex Banners</option>
+              </select>
+              <span onclick="check_and_href_file_sidenav()" class="select_search" style="color: white; float: right; margin-right: 65px;
+              background-color: rgb(8, 202, 8);
+              border-top-right-radius: 4px; border-bottom-right-radius: 4px;
+              height: 32px; margin-top: 3.2px;"><span style="padding: 7px;
+              font-size: 20pt; color: white;"><i class="fas fa-search"></i></span></span>
+              </a>
+            </div>
+          </div>
+        <div id="header_2">
+          <a href="Shadicards_Page.html" class="Shadi_Cards">Shadi Cards</a>
+          <a href="Visiting_cards_Page.html" class="Visiting_Cards">Visiting Cards</a>
+          <a href="Carry_bags_Page.html" class="Carry_Bags">Carry Bags</a>
+          <a href="Flex_banners_Page.html" class="Flex_Banners">Flex Banner</a>
+          <a href="Bill_book_Page.html" class="Bill_Books">Bill Books</a>
+            <select id="More_Options">
+                <option class="More_text_Style" selected=''>More Options...</option>
+                <option>Birthday Cards</option>
+                <option>Akhand Ramayana Cards</option>
+                <option>Marriage Cards</option>
+                <option>Carry Bags</option>
+                <option>Visiting Cards</option>
+                <option>Bill Books</option>
+                <option>Letter Pads</option>
+                <option>Flex Banners</option>
+            </select>
+            <span onclick="check_and_href_file()" class="select_search" style="color: white; float: right; margin-right: 20px;
+            background-color: rgb(8, 202, 8);
+            border-top-right-radius: 4px; border-bottom-right-radius: 4px;
+            height: 32px; margin-top: 3.2px;"><span style="padding: 7px;
+            font-size: 20pt; color: white;"><i class="fas fa-search"></i></span></span>
+        </div>
+        <div id="Home_Page_Alert_Div">
+            <span class="Alert_Message">To See Profile Go on <a href="Profile Page.html">Business Account Page</a></span>
+        </div>
+      </div>
+        <div id="Card_list_container">
+         <center>
+           <h1 style="font-size: 35pt; padding: 20px; margin-top: 80px;"><u>Flex Banners</u></h1>
+         </center>
+           <div class="Card_list 1">
+             <div><img src="Flex banner.jpg"></div>
+             <div class="shadicard_detail"><h1>Flex Banners</h1>
+             <span style="background-color: limegreen; padding: 8px; display: block; width: 240px; margin-top: 50px;">
+               <b>Price (1): <span style="color: red;">10 per sq. feet = Low Raggine</b></span>
+             </span>
+             <span style="background-color: limegreen; padding: 8px; display: block; width: 240px; margin-top: 10px;">
+              <b>Price (2): <span style="color: red;">20 per sq. feet = Best Quality Raggine</b></span>
+            </span>
+            </div>
+           </div>
+           <div class="Card_list" style="margin-top: 50px;">
+            <div><img src="flex banner 2.jpg"></div>
+            <div class="shadicard_detail"><h1>Flex Banners</h1>
+              <span style="background-color: limegreen; padding: 8px; display: block; width: 240px; margin-top: 50px;">
+                <b>Price (1): <span style="color: red;">10 per sq. feet = Low Raggine</b></span>
+              </span>
+              <span style="background-color: limegreen; padding: 8px; display: block; width: 240px; margin-top: 10px;">
+               <b>Price (2): <span style="color: red;">20 per sq. feet = Best Quality Raggine</b></span>
+             </span>
+           </div>
+          </div>
+          <div class="Card_list" style="margin-top: 50px;">
+            <div><img src="flex banner 3.jpg"></div>
+            <div class="shadicard_detail"><h1>Flex Banners</h1>
+              <span style="background-color: limegreen; padding: 8px; display: block; width: 240px; margin-top: 50px;">
+                <b>Price (1): <span style="color: red;">10 per sq. feet = Low Raggine</b></span>
+              </span>
+              <span style="background-color: limegreen; padding: 8px; display: block; width: 240px; margin-top: 10px;">
+               <b>Price (2): <span style="color: red;">20 per sq. feet = Best Quality Raggine</b></span>
+             </span>
+           </div>
+          </div> 
+          <div class="Card_list" style="margin-top: 50px;">
+            <div><img src="flex banner 4.jpg"></div>
+            <div class="shadicard_detail"><h1>Flex Banners</h1>
+              <span style="background-color: limegreen; padding: 8px; display: block; width: 240px; margin-top: 50px;">
+                <b>Price (1): <span style="color: red;">10 per sq. feet = Low Raggine</b></span>
+              </span>
+              <span style="background-color: limegreen; padding: 8px; display: block; width: 240px; margin-top: 10px;">
+               <b>Price (2): <span style="color: red;">20 per sq. feet = Best Quality Raggine</b></span>
+             </span>
+           </div>
+          </div>
+                  
+         </div>
+
+         <footer style="margin-top: 10px;">
+          <a href="#" style="text-decoration: none;"><div style="width: 100%; height: 50px; background-color: black; font-size: 15pt;
+          color: white;">
+          <hr color="white">
+             <center><span class="Back_to_top_btn">Back to top</span></center>
+          </div>
+          </a>
+          <hr width="100%">
+          <div style="background-color: rgb(23, 24, 23); height: 600px;">
+  
+              <img src="Business logo.png" style="border-radius: 50%; float: left; padding: 10px; padding-right: 95px;
+              padding-top: 40px;">
+           
+              <h1 style="color: rgb(4, 226, 4); padding-top: 50px;">Thanks for visit</h1>
+            <pre>
+              <article style="color: white; font-family: cursive; text-indent: 20%;
+              margin-top: 5px; font-size: 14pt;">
+                We are very thankful to you that you have visited my page
+                .If You found more information for about our business.
+                You can go to <a href="Profile Page.html" style="color: rgb(84, 156, 250);">Business account Page</a>.
+                We can only provide you only these following facilities -
+              </article>
+            </pre>
+                <div>
+                  <center>
+                    <select id="More_Options_footer" style="margin-top: 40px;">
+                    <option class="More_text_Style">More Options...</option>
+                    <option>Birthday Cards</option>
+                    <option>Akand Ramayana Cards</option>
+                    <option>Advertising Papers</option>
+                    <option>Birthday Cards</option>
+                    <option>Marriage Cards</option>
+                    <option>Carry Bags</option>
+                    <option>Visiting Cards</option>
+                    <option>Bill Books</option>
+                    <option>Letter Pads</option>
+                    <option>Flex Banners</option>
+                </select>
+                </div> 
+              <div style="margin-top: 150px; color: white; font-family: cursive;">
+                <h1 style="color: rgb(4, 226, 4); margin-left: 340px;"><b>Contact Information-</b></h1>
+                <span style="color: orangered; margin-left: 350px;"><b>Gmail Id: </b></span>shreerampress014gmail.com<br>
+                <span style="color: orangered; margin-left: 350px;"><b>Contact No: </b></span>9690098900, 8923013808<br>
+                <span style="color: orangered; margin-left: 350px;"><b>Whatsapp Chat: </b></span>9690098900
+              </div>
+              </center>                
+          </div>
+          <div style="background-color: black; color: grey; font-family: cursive;">
+             <center>
+               For More Information visit us at- <a href="Profile Page.html" style="color: skyblue;">Business Account Page</a>
+             </center>
+          </div>
+      </footer>  
+      
+
+
+
+
+
+
+      
+
+   <script>
+     function openNav(){
+                document.querySelector('.sidenav').style.width = '23%';
+                document.querySelector('.sidenav_elements').style.display = 'block';
+            }
+
+            function closeNav(){
+                document.querySelector('.sidenav').style.width = '0px';
+                document.querySelector('.sidenav_elements').style.display = 'none';
+            }
+            function contact_mouseover(){
+              document.querySelector('.sidenav_options_div').style.visibility = 'visible';
+            }
+            function contact_mouseout(){
+              document.querySelector('.sidenav_options_div').style.visibility = 'hidden';
+            }
+            function about_mouseover(){
+              document.querySelector('.sidenav_About_option_div').style.visibility = 'visible';
+            }
+            function about_mouseout(){
+              document.querySelector('.sidenav_About_option_div').style.visibility = 'hidden';
+            }
+
+            function get_location(){
+              window.location.href = 'https://www.google.com/maps/place/%E0%A4%B6%E0%A5%8D%E0%A4%B0%E0%A5%80+%E0%A4%B0%E0%A4%BE%E0%A4%AE+%E0%A4%AA%E0%A5%8D%E0%A4%B0%E0%A5%87%E0%A4%B8/@26.7187629,78.9577044,97m/data=!3m1!1e3!4m5!3m4!1s0x0:0xb48749e62eebb75a!8m2!3d26.7188!4d78.9574585';
+            }
+
+            
+            const check_and_href_file = () =>{
+         More_Options_value = document.querySelector('#More_Options').value;
+         if(More_Options_value == 'Marriage Cards'){
+                    window.location.href = 'Shadicards_Page.html';
+                  }
+                  if(More_Options_value == 'Carry Bags'){
+                    window.location.href = 'Carry_bags_Page.html';
+                  }
+                  if(More_Options_value == 'Visiting Cards'){
+                    window.location.href = 'Visiting_cards_Page.html';
+                  }
+                  if(More_Options_value == 'Birthday Cards'){
+                    window.location.href = 'Birthday_cards_Page.html';
+                  }
+                  if(More_Options_value == 'Flex Banners'){
+                    window.location.href = 'Flex_banners_Page.html';
+                  }
+                  if(More_Options_value == 'Letter Pads'){
+                    window.location.href = 'Letterpads_Page.html';
+                  }
+                  if(More_Options_value == 'Bill Books'){
+                    window.location.href = 'Bill_book_Page.html';
+                  }
+                  if(More_Options_value == 'Akhand Ramayana Cards'){
+                    window.location.href = 'Akhand_ramayana_card_Page.html';
+                  }
+       }
+       const check_and_href_file_sidenav = () =>{
+                  More_Options_value = document.querySelector('#More_Options_sidenav').value;
+                  if(More_Options_value == 'Marriage Cards'){
+                    window.location.href = 'Shadicards_Page.html';
+                  }
+                  if(More_Options_value == 'Carry Bags'){
+                    window.location.href = 'Carry_bags_Page.html';
+                  }
+                  if(More_Options_value == 'Visiting Cards'){
+                    window.location.href = 'Visiting_cards_Page.html';
+                  }
+                  if(More_Options_value == 'Birthday Cards'){
+                    window.location.href = 'Birthday_cards_Page.html';
+                  }
+                  if(More_Options_value == 'Flex Banners'){
+                    window.location.href = 'Flex_banners_Page.html';
+                  }
+                  if(More_Options_value == 'Letter Pads'){
+                    window.location.href = 'Letterpads_Page.html';
+                  }
+                  if(More_Options_value == 'Bill Books'){
+                    window.location.href = 'Bill_book_Page.html';
+                  }
+                  if(More_Options_value == 'Akhand Ramayana Cards'){
+                    window.location.href = 'Akhand_ramayana_card_Page.html';
+                  }
+             }
+             my_top_btn = document.querySelector('#back_to_top_scroll_btn')
+
+             window.onscroll = function(){
+               if(document.documentElement.scrollTop > 20){
+                    my_top_btn.style.display = 'block';
+               }
+               else{
+                 my_top_btn.style.display = 'none';
+               }
+             }
+             function back_to_top(){
+                 window.scrollTo({top: 0, behavior: "smooth"})
+             }
+   </script>
+
+
+</body>
+</html>
